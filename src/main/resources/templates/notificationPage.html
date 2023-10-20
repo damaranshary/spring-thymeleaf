@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tambah Data Mahasiswa</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
+</head>
+<body>
+
+<br/>
+<div class="form-container">
+    <h3>${result}</h3>
+    <p>Nama: ${name}</p>
+    <p>NIM: ${nim}</p>
+    <p>Alamat: ${address}</p>
+    <p>Tanggal Lahir: ${birthday}</p>
+    <a th:href="@{/mahasiswa}">
+        <button class="button-href">Kembali</button>
+    </a>
+    <a th:href="@{/mahasiswa}">
+        <button class="button-href">Lihat Data Mahasiswa</button>
+    </a>
+</div>
+
+</body>
+</html>

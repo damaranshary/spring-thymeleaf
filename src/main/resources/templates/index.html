@@ -2,7 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Data Mahasiswa</title>
-    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link th:href="@{/style.css}" rel="stylesheet">
 </head>
 <body>
@@ -10,7 +9,7 @@
     <h2>Data Mahasiswa</h2>
     <div class="header">
         <button class="button-href back" onclick="location.href='../..'">Kembali</button>
-        <form action="/mahasiswa/cari">
+        <form th:action="@{/mahasiswa/search}" th:method="get">
             <input type="text" name="query" placeholder="Cari mahasiswa berdasarkan NIM atau nama">
         </form>
     </div>
@@ -20,15 +19,18 @@
             <th>Nama</th>
             <th>Alamat</th>
             <th>Tanggal Lahir</th>
+            <th>Aksi</th>
         </tr>
-        <tr th:each="mahasiswa : ${dataMahasiswa}">
+        <tr th:if="*{!dataMahasiswa.isEmpty()}" th:each="mahasiswa : ${dataMahasiswa}">
             <td th:text="${mahasiswa.nim}"></td>
-            <td th:text="${mahasiswa.name}"></td>
-            <td th:text="${mahasiswa.address}"></td>
-            <td th:text="${#dates.format(mahasiswa.birthday, 'dd-MM-yyyy')}"></td>
+            <td th:text="${mahasiswa.getName()}"></td>
+            <td th:text="${mahasiswa.getAddress()}"></td>
+            <td th:text="${mahasiswa.getBirthday()}"></td>
+            <td><a th:href="@{/mahasiswa/update/{id}(id=${mahasiswa.getNim()})}"><button class="button-href">Ubah</button></a>
+                <a th:href="@{/mahasiswa/delete/{id}(id=${mahasiswa.getNim()})}"><button class="button-href">Hapus</button></a>
+            </td>
         </tr>
     </table>
-    <h3 th:if="${dataMahasiswa.size() == 0}">Data mahasiswa tidak ditemukan</h3>
 </div>
 </body>
 </html>

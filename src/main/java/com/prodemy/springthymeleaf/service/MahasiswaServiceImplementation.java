@@ -19,11 +19,28 @@ public class MahasiswaServiceImplementation implements MahasiswaService{
         return mahasiswaRepository.findAll();
     }
 
+    @Override
     public Optional<Mahasiswa> findById(Integer nim ) {
         return mahasiswaRepository.findById(nim);
     }
 
+    @Override
+    public Optional<Mahasiswa> searchMahasiswaByName(String name) {
+        return mahasiswaRepository.searchMahasiswaByName(name);
+    }
 
+    @Override
+    public Optional<Mahasiswa> searchMahasiswaByNim(Integer nim) {
+        return mahasiswaRepository.searchMahasiswaByNim(nim);
+    }
 
+    @Override
+    public void saveMahasiswa(Mahasiswa mahasiswa) {
+        this.mahasiswaRepository.save(mahasiswa);
+    }
 
+    @Override
+    public void deleteMahasiswaById(Integer id) {
+        this.mahasiswaRepository.deleteById(id);
+    }
 }

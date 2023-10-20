@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Form Data Mahasiswa</title>
+  <link th:href="@{/style.css}" rel="stylesheet">
+</head>
+<body>
+<div class="form-container">
+  <h2>Form Ubah Data Mahasiswa</h2>
+
+  <form th:if="${mahasiswa}" th:action="@{/mahasiswa/save}" th:object="${mahasiswa}" method="post">
+    <label for="name">Nama Lengkap</label>
+    <input type="text" name="name" id="name" th:field="*{name}" required/>
+    <label for="nim">NIM</label>
+    <input type="number" name="nim" id="nim" th:field="*{nim}" required/>
+    <label for="address">Alamat Lengkap</label>
+    <textarea name="address" id="address" th:field="*{address}" required></textarea>
+    <label for="birthday">Tanggal Lahir</label>
+    <input type="date" name="birthday" id="birthday" th:field="*{birthday}" required/>
+    <button class="button-submit" type="submit">Submit</button>
+  </form>
+  <h3 th:unless="${mahasiswa}">ID GADA COY</h3>
+
+  <button class="button-href" onclick="location.href='mahasiswa'">Lihat Data Mahasiswa</button>
+</div>
+</body>
+</html>

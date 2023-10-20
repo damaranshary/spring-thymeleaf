@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+body {
+    font-family: Inter, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 400px;
+    padding: 20px 40px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.table-container {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 840px;
+    padding: 20px 40px 40px 40px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+h2 {
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: start;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea,
+p, button {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+input, button {
+    font-family: inherit;
+    font-size: 1em;
+}
+
+p {
+    text-align: start;
+}
+
+h3 {
+    color: #333;
+}
+
+textarea {
+    font-family: Inter, sans-serif;
+    font-size: 1em;
+    height: 50px;
+}
+
+.button-submit {
+    background-color: #04AA6D;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-submit:hover {
+    background-color: #0f7d53;
+}
+
+.button-href {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 10px 20px;
+}
+
+.button-href:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.mahasiswa {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.mahasiswa td, .mahasiswa th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: inherit;
+    text-align: start;
+}
+
+.mahasiswa tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.mahasiswa tr:hover {
+    background-color: #ddd;
+}
+
+.mahasiswa th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 0 10px 0;
+}
+
+.header-title {
+    display: flex;
+    flex-direction: row;
+}
+
+.header form {
+    height: 40px;
+    width: 400px;
+    margin: auto 0;
+}
+
+.header input {
+    margin: auto 0;
+}
+
+.header .back {
+    height: 40px;
+}

@@ -2,7 +2,6 @@ package com.prodemy.springthymeleaf.controller;
 
 import com.prodemy.springthymeleaf.model.Mahasiswa;
 import com.prodemy.springthymeleaf.service.MahasiswaService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,15 +44,21 @@ public class MahasiswaController {
     }
 
     // This is a method to save the data (can be either update nor create/add)
-    @PostMapping(path = "/mahasiswa/save")
-    public String saveMahasiswa(@ModelAttribute("mahasiswa") Mahasiswa mahasiswa, Model model) {
+    @PostMapping(path = "/mahasiswa/add/result")
+    public String addMahasiswa(@ModelAttribute("mahasiswa") Mahasiswa mahasiswa, Model model) {
         // we create an attribute mahasiswa to get back the data that sent to the database
         // just for confirmation
-        model.addAttribute("mahasiswa", mahasiswaService.saveMahasiswa(mahasiswa));
+        if (mahasiswaService.findById(mahasiswa.getNim()).isPresent()) {
+            model.addAttribute("saveResult", false);
+        } else {
+            model.addAttribute("saveResult", true);
+            model.addAttribute("mahasiswa", mahasiswaService.saveMahasiswa(mahasiswa));
+        }
 
         // we show the data that we submit/sent
-        return "saveMahasiswaPage";
+        return "addResultPage";
     }
+
 
     // This is a method to update the mahasiswa by id using PathVariable
     @GetMapping("/mahasiswa/update/{id}")
@@ -65,6 +70,17 @@ public class MahasiswaController {
         model.addAttribute("mahasiswa", mahasiswa);
 
         return "updateMahasiswaPage";
+    }
+
+    @PostMapping(path = "/mahasiswa/update")
+    public String updateMahasiswa(@ModelAttribute("mahasiswa") Mahasiswa mahasiswa, Model model) {
+        // we create an attribute mahasiswa to get back the data that sent to the database
+        // just for confirmation
+
+        model.addAttribute("mahasiswa", mahasiswaService.saveMahasiswa(mahasiswa));
+
+        // we show the data that we submit/sent
+        return "updateResultPage";
     }
 
     // This is a method to delete the mahasiswa by id using PathVariable

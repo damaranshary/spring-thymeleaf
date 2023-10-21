@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+// this basically a service Implementation using the JpaRepository
+// using the mahasiswaService interface
 @Service
-public class MahasiswaServiceImplementation implements MahasiswaService{
+public class MahasiswaServiceImplementation implements MahasiswaService {
 
     @Autowired
     private MahasiswaRepository mahasiswaRepository;
@@ -20,23 +22,25 @@ public class MahasiswaServiceImplementation implements MahasiswaService{
     }
 
     @Override
-    public Optional<Mahasiswa> findById(Integer nim ) {
+    public Optional<Mahasiswa> findById(Integer nim) {
         return mahasiswaRepository.findById(nim);
     }
 
     @Override
-    public Optional<Mahasiswa> searchMahasiswaByName(String name) {
-        return mahasiswaRepository.searchMahasiswaByName(name);
+    public List<Mahasiswa> searchMahasiswaByNameContainingIgnoreCase(String name) {
+        return mahasiswaRepository.searchMahasiswaByNameContainingIgnoreCase(name);
     }
 
-    @Override
-    public Optional<Mahasiswa> searchMahasiswaByNim(Integer nim) {
-        return mahasiswaRepository.searchMahasiswaByNim(nim);
-    }
+//    @Override
+//    public List<Mahasiswa> searchMahasiswaByNimContains(Integer nim) {
+//        return mahasiswaRepository.searchMahasiswaByNimContains(nim);
+//    }
 
     @Override
-    public void saveMahasiswa(Mahasiswa mahasiswa) {
+    public Mahasiswa saveMahasiswa(Mahasiswa mahasiswa) {
         this.mahasiswaRepository.save(mahasiswa);
+
+        return mahasiswa;
     }
 
     @Override

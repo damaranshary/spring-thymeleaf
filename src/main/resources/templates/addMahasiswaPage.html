@@ -7,6 +7,8 @@
 <body>
 <div class="form-container">
     <h2>Form Mahasiswa</h2>
+    <!-- th:object in thymeleaf is important to know what kind of object the form will represent-->
+    <!-- @ is for routes, $ is for data/object, * is for field -->
     <form th:action="@{/mahasiswa/save}" th:object="${mahasiswa}" method="post">
         <label for="name">Nama Lengkap</label>
         <input type="text" name="name" id="name" th:field="*{name}" required/>
@@ -16,9 +18,11 @@
         <textarea name="address" id="address" th:field="*{address}" required></textarea>
         <label for="birthday">Tanggal Lahir</label>
         <input type="date" name="birthday" id="birthday" th:field="*{birthday}" required/>
-        <button class="button-submit" type="submit">Submit</button>
+        <button class="button-submit" type="submit">Tambah</button>
     </form>
-    <button class="button-href" onclick="location.href='mahasiswa'">Lihat Data Mahasiswa</button>
+    <a th:href="@{/mahasiswa}">
+        <button class="button-href">Lihat Data Mahasiswa</button>
+    </a>
 </div>
 </body>
 </html>

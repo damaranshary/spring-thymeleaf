@@ -8,14 +8,11 @@
 
 <br/>
 <div class="form-container">
-    <h3>${result}</h3>
-    <p>Nama: ${name}</p>
-    <p>NIM: ${nim}</p>
-    <p>Alamat: ${address}</p>
-    <p>Tanggal Lahir: ${birthday}</p>
-    <a th:href="@{/mahasiswa}">
-        <button class="button-href">Kembali</button>
-    </a>
+    <h3>Data berhasil ditambahkan!</h3>
+    <p th:text="${mahasiswa.getName()}"></p>
+    <p th:text="${mahasiswa.getNim()}"></p>
+    <p th:text="${mahasiswa.getAddress()}">}</p>
+    <p th:text="${mahasiswa.getBirthday()}"></p>
     <a th:href="@{/mahasiswa}">
         <button class="button-href">Lihat Data Mahasiswa</button>
     </a>

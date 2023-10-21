@@ -29,6 +29,7 @@ body {
 
 h2 {
     color: #333;
+    margin-bottom: 25px;
 }
 
 form {
@@ -75,6 +76,7 @@ textarea {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-weight: 500;
 }
 
 .button-submit:hover {
@@ -94,6 +96,36 @@ textarea {
     color: white;
 }
 
+.button-action {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 8px 18px;
+    font-size: 0.9em;
+}
+
+.button-action:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+
+#delete-button {
+    background-color: #f32d07; /* A vibrant red */
+    color: #fff; /* White text for contrast */
+}
+
+#delete-button:hover {
+    background-color: #a6250a; /* Darker red on hover */
+}
+
+.td-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 .mahasiswa {
     border-collapse: collapse;
     width: 100%;
@@ -101,7 +133,7 @@ textarea {
 
 .mahasiswa td, .mahasiswa th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 5px 8px;
     border-radius: inherit;
     text-align: start;
 }
@@ -115,11 +147,12 @@ textarea {
 }
 
 .mahasiswa th {
-    padding-top: 12px;
     padding-bottom: 12px;
+    padding-top: 12px;
     text-align: left;
     background-color: #04AA6D;
     color: white;
+    font-weight: 600;
 }
 
 .header {

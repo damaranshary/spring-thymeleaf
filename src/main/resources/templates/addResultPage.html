@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tambah Data Mahasiswa</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
+</head>
+<body>
+
+<br/>
+<div th:if="${saveResult}" class="form-container">
+    <h3>Data berhasil ditambahkan!</h3>
+    <p th:text="'NIM    : ' + ${mahasiswa.getNim()}"></p>
+    <p th:text="'Nama   : ' + ${mahasiswa.getName()}"></p>
+    <p th:text="'Alamat : ' + ${mahasiswa.getAddress()}">}</p>
+    <p th:text="'Tanggal Lahir : ' + ${#dates.format(mahasiswa.getBirthday(), 'dd-MM-yyyy')}"></p>
+    <a th:href="@{/mahasiswa}">
+        <button class="button-href">Lihat Data Mahasiswa</button>
+    </a>
+</div>
+<div th:unless="${saveResult}" class="form-container">
+    <h3>NIM telah terdaftar, mohon gunakan NIM lain</h3>
+    <a th:onclick="history.back()" style="margin-right: 8px">
+        <button class="button-href">Kembali</button>
+    </a>
+    <a th:href="@{/mahasiswa}">
+        <button class="button-submit">Lihat Data Mahasiswa</button>
+    </a>
+</div>
+
+</body>
+</html>
